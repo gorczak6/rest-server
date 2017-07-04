@@ -17,10 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from movies import views
-from movies.views import MovieView, MoviesView
+from movies.views import MovieView, MoviesView, PersonView, PersonListView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^movies/', views.MoviesView.as_view()),
+    url(r'^movies/$', views.MoviesView.as_view()),
     url(r'^movies/(?P<id>(\d)+)', views.MovieView.as_view()),
+    url(r'^people/$', views.PersonListView.as_view()),
+    url(r'^person/(?P<id>(\d)+)', views.PersonView.as_view()),
 ]
+
